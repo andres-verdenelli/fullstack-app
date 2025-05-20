@@ -1,13 +1,14 @@
 import express from 'express'
 import prisma from './prisma/prismaClient.js'
 import dotenv from 'dotenv'
+import cors from 'cors'
 
 dotenv.config()
 const PORT = process.env.PORT || 3000
 
 const app = express()
 app.use(express.json())
-
+app.use(cors())
 app.get('/tasks', async (req, res) => {
   const tasks = await prisma.task.findMany()
   res.json(tasks)

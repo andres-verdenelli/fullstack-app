@@ -40,6 +40,7 @@ function App() {
   }
   return (
     <>
+      <p>API: {import.meta.env.VITE_API_URL}</p>
       <h1>Tasks</h1>
       <ul>
         {tasks.map(task => (
